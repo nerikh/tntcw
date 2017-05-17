@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
-import './styles/index.css';
 import { Router, Route, browserHistory } from 'react-router';
-import { firebaseApp } from './firebase';
+import './styles/index.css';
+import App from './components/App';
 import SignIn from './components/SignIn';
-import WarrantyTracker from './components/WarrantyTracker';
+import { firebaseApp } from './firebase';
+// Redux ///////////////////////////////////////////////////////////////////////
+import { Provider } from 'react-redux'; // Provider wraps  ReactDom.render
+import { createStore } from 'redux'; // Store called by Provider 
 
+const store = createStore();
+// Redux ///////////////////////////////////////////////////////////////////////
+
+// Firebase Auth ///////////////////////////////////////////////////////////////
 // Firebase -listener for Firebase Authentication 
 firebaseApp.auth().onAuthStateChanged(user => {
   if (user) {
@@ -19,12 +25,14 @@ firebaseApp.auth().onAuthStateChanged(user => {
     browserHistory.replace('/signin');
   }
 })
+// Firebase Auth ///////////////////////////////////////////////////////////////
 
 ReactDOM.render(
-  <Router path="/" history={browserHistory}>
-    <Route path="/signin" component={SignIn} />
-    <Route path="/core-warranty" component={App} />
-  </Router>,
+  <Provider store={store}>
+    <Router path="/" history={browserHistory}>
+      <Route path="/signin" component={SignIn} />
+      <Route path="/core-warranty" component={App} />
+    </Router>
+  </Provider>,
   document.getElementById('root')
 );
-
