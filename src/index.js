@@ -5,6 +5,7 @@ import './styles/index.css';
 import { Router, Route, browserHistory } from 'react-router';
 import { firebaseApp } from './firebase';
 import SignIn from './components/SignIn';
+import WarrantyTracker from './components/WarrantyTracker';
 
 // Firebase -listener for Firebase Authentication 
 firebaseApp.auth().onAuthStateChanged(user => {
@@ -21,8 +22,9 @@ firebaseApp.auth().onAuthStateChanged(user => {
 
 ReactDOM.render(
   <Router path="/" history={browserHistory}>
-    <Route path="/core-warranty" component={App} />
     <Route path="/signin" component={SignIn} />
+    <Route path="/core-warranty" component={App} />
+    <Route path="/warranty-tracker" component={WarrantyTracker} />
   </Router>,
   document.getElementById('root')
 );
