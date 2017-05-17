@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-// Link: allows creation of links via react-router
-import { Link } from 'react-router';
 import { firebaseApp } from '../firebase';
 
 
@@ -30,9 +28,9 @@ class SignIn extends Component {
 
   render() {
     return (
-      <div className="form-inline" style={{margin: '2rem'}}>
-        <h2>Sign In</h2>
-        <div className="from-group">
+      <div className="row" style={{margin: '2rem'}}>
+        <div className="small-3 columns">
+          <h2>Sign In</h2>
           <input
             className="form-control"
             type="text"
@@ -48,15 +46,14 @@ class SignIn extends Component {
             onChange={event => this.setState({password: event.target.value})}
           />
           <button
-            className="btn btn-primary"
+            className="button primary"
             type="button"
             onClick={() => this.signIn()}
           >
-            Sign Up
+            Sign In
           </button>
         </div>
         <div>{this.state.error.message}</div>
-        <div><Link to={'/signup'}>Sign up instead</Link></div>
       </div>
     )
   }
