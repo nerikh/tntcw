@@ -24,7 +24,6 @@ ReactDOM.render(
   <Router path="/" history={browserHistory}>
     <Route path="/signin" component={SignIn} />
     <Route path="/core-warranty" component={App} />
-    <Route path="/warranty-tracker" component={WarrantyTracker} />
   </Router>,
   document.getElementById('root')
 );

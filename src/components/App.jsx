@@ -3,10 +3,9 @@ import '../styles/App.css';
 import { firebaseApp } from '../firebase';
 import Nav from './Nav';
 import WarrantyTracker from './WarrantyTracker';
-import { Link } from 'react-router';
 
 class App extends Component {
-
+  
   render() {
     return (
       <div className="app-wrapper">
