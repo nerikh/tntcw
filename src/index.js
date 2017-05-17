@@ -9,10 +9,10 @@ import { firebaseApp } from './firebase';
 import { Provider } from 'react-redux'; // Provider wraps  ReactDom.render
 import { createStore } from 'redux'; // Store called by Provider 
 
-const store = createStore();
-
 import { logUser } from './actions';
 import reducer from './reducers';
+
+const store = createStore();
 // Redux ///////////////////////////////////////////////////////////////////////
 
 // Firebase Auth ///////////////////////////////////////////////////////////////
