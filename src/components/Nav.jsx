@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { firebaseApp } from '../firebase';
 
@@ -24,4 +25,8 @@ class Nav extends Component {
   }
 }
 
-export default Nav;
+function mapStateToProps(state) {
+  return {}
+}
+
+export default connect(mapStateToProps, null)(Nav);

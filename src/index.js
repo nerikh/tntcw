@@ -10,6 +10,9 @@ import { Provider } from 'react-redux'; // Provider wraps  ReactDom.render
 import { createStore } from 'redux'; // Store called by Provider 
 
 const store = createStore();
+
+import { logUser } from './actions';
+import reducer from './reducers';
 // Redux ///////////////////////////////////////////////////////////////////////
 
 // Firebase Auth ///////////////////////////////////////////////////////////////
@@ -17,6 +20,8 @@ const store = createStore();
 firebaseApp.auth().onAuthStateChanged(user => {
   if (user) {
     console.log('user has signed in or up', user);
+    const { email } = user; // 'email' variable from Firebase user
+    store.dispatch(logUser(email));
     // link redirect to url automatically after login
     browserHistory.push('/core-warranty');
   } else {

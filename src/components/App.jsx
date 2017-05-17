@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
-import { firebaseApp } from '../firebase';
 import Nav from './Nav';
 import WarrantyTracker from './WarrantyTracker';
 
