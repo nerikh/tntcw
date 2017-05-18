@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { mainOptions } from '../actions';
 import WarrantyTracker from './WarrantyTracker';
-import ButtonOptions from './ButtonOptions';
 
 class CoreWarranty extends Component {
   constructor(props) {
@@ -12,17 +11,12 @@ class CoreWarranty extends Component {
     }
   }
 
-  showOptionsClick() {
-    this.setState({ showOptions: true });
-  }
-
-  showWarrantyClick() {
+  handleShowWarrantyTracker() {
     this.setState({ showOptions: false });
   }
 
   render() {
     const showOptions = this.state.showOptions;
-
 
     let button = null;
 
@@ -30,12 +24,10 @@ class CoreWarranty extends Component {
       button = 
       <button 
           className="button large hollow primary"
-          onClick={() => this.setState({ showOptions: false })}
+          onClick={() => this.handleShowWarrantyTracker()}
         >
           Warranty Tracker
         </button>;
-
- 
     } else {
       button = <WarrantyTracker />;
     }
