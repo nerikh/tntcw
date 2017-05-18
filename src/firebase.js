@@ -15,5 +15,5 @@ export const firebaseApp = firebase.initializeApp(config);
  * .database --call the database module
  * .ref('goals) --define the reference key named 'goals'
 */
-// export const goalRef = firebase.database().ref('goals');
-// export const completeGoalRef = firebase.database().ref('completeGoals');
+export const warrantyItemRef = firebase.database().ref('warrantyItems');
+// export const warrantyItemInvoiceRef = firebase.database().ref('warrantyItems');

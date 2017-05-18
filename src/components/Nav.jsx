@@ -11,7 +11,7 @@ class Nav extends Component {
 
   render() {
     return (
-      <div className="nav small-12 medium-4 large-2 columns">
+      <div className="nav small-10 medium-4 large-2 columns">
         <div><Link to={'/core-warranty'}>Core/Warranty</Link></div>
         <button 
           type="button" 
