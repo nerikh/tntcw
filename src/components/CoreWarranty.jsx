@@ -22,7 +22,7 @@ class CoreWarranty extends Component {
   render() {
     const showOptions = this.state.showOptions;
 
-    let button = null;
+    let optionsToggle = null;
     
     const showCoreWarrantyOptions =
       <button 
@@ -49,15 +49,15 @@ class CoreWarranty extends Component {
 
 
     if (showOptions) {
-      button = showCoreWarrantyOptions;
+      optionsToggle = showCoreWarrantyOptions;
     } else {
-      button = showWarrantyTracker;
+      optionsToggle = showWarrantyTracker;
     }
 
     console.log('state in CoreWarranty', this.state);
     return (
       <div>
-        {button}
+        {optionsToggle}
       </div>
     );
   }
