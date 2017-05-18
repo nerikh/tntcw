@@ -31,7 +31,10 @@ class CoreWarranty extends Component {
       >
         Main Menu
       </button>;
-      //    const results = [wTracker, alternate];
+      const results = [wTracker, alternate];
+      const resultsFinal = results.map(function(result, index) {
+        return <div key={index}>{result}</div>;
+      });
 
 
     if (showOptions) {
@@ -43,7 +46,7 @@ class CoreWarranty extends Component {
           Warranty Tracker
         </button>;
     } else {
-      button = [ wTracker, alternate ]
+      button = resultsFinal;
     }
 
     console.log('state in CoreWarranty', this.state);
