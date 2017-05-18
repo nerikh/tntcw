@@ -12,7 +12,7 @@ import { createStore } from 'redux'; // Store called by Provider
 import { logUser } from './actions';
 import reducer from './reducers';
 
-const store = createStore();
+const store = createStore(reducer);
 // Redux ///////////////////////////////////////////////////////////////////////
 
 // Firebase Auth ///////////////////////////////////////////////////////////////
