@@ -1,4 +1,4 @@
-import { SIGNED_IN } from '../constants';
+import { SIGNED_IN, MAIN_OPTIONS } from '../constants';
 
 // Email Parameter
 export function logUser(email) {
@@ -6,6 +6,15 @@ export function logUser(email) {
   const action = {
     type: SIGNED_IN,
     email
+  }
+  return action;
+}
+
+// Main Options: Warranty or Core
+export function mainOptions(showOptions) {
+  const action = {
+    type: MAIN_OPTIONS,
+    showOptions
   }
   return action;
 }

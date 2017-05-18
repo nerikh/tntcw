@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { mainOptions } from '../actions';
 import WarrantyTracker from './WarrantyTracker';
 import ButtonOptions from './ButtonOptions';
 
@@ -21,14 +23,14 @@ class CoreWarranty extends Component {
   render() {
     const showOptions = this.state.showOptions;
 
-    console.log('showOptions', showOptions);
+    console.log('this', this);
 
     let button = null;
 
     if (showOptions) {
-      button = <ButtonOptions showOptions={this.state.showOptions} />;
+      button = <ButtonOptions  />;
     } else {
-      button = <WarrantyTracker showOptions={this.state.showOptions} />;
+      button = <WarrantyTracker />;
     }
 
     return (
@@ -39,4 +41,11 @@ class CoreWarranty extends Component {
   }
 }
 
-export default CoreWarranty;
+function mapStateToProps(state) {
+  const { showOptions } = state;
+  return {
+    showOptions
+  }
+}
+
+export default connect(mapStateToProps, { mainOptions })(CoreWarranty);
