@@ -23,16 +23,23 @@ class CoreWarranty extends Component {
   render() {
     const showOptions = this.state.showOptions;
 
-    console.log('this', this);
 
     let button = null;
 
     if (showOptions) {
-      button = <ButtonOptions  />;
+      button = 
+      <button 
+          className="button large hollow primary"
+          onClick={() => this.setState({ showOptions: false })}
+        >
+          Warranty Tracker
+        </button>;
+
+ 
     } else {
       button = <WarrantyTracker />;
     }
-
+    console.log('state in CoreWarranty', this.state);
     return (
       <div>
         {button}
