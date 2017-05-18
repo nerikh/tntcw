@@ -5,45 +5,42 @@ class AddWarrantyItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputForm: {
-        Location: 'choose',
-        TurnedInBy: 'choose',
-        ReceivedBy: 'choose',
-        RO: '',
-        VIN: '',
-        Vendor: '',
-        Customer: '',
-        FailedPartNumber: '',
-        Quantity: 1,
-        Description: ''
-      },
+      Location: 'choose',
+      TurnedInBy: 'choose',
+      ReceivedBy: 'choose',
+      RO: '',
+      VIN: '',
+      Vendor: '',
+      Customer: '',
+      FailedPartNumber: '',
+      Quantity: '1',
+      Description: '',
       formInput: true,
       formOutput: false
     }
-    this.baseState = this.state
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  // Quantity Selector: requires this because onChange won't accommodate default value of '1' 
+  handleChange(event){
+    this.setState({Quantity: event.target.value});
   }
  
- 
-  submitForm() {
+  handleSubmit() {
+    // this.state - capture values of form elements
     const { Location, TurnedInBy, ReceivedBy, RO, VIN, Vendor, Customer, FailedPartNumber, Quantity, Description  } = this.state;
-
+    // Form validation - if any element is empty, do not submit the form 
     if ( (Location !== 'choose' && TurnedInBy !== 'choose' && ReceivedBy !== 'choose') && RO !== '' && VIN !== '' && Vendor !== '' && Customer !== '' && FailedPartNumber !== '' && Description !== '') {
       warrantyItemRef.push({ Location, TurnedInBy, ReceivedBy, RO, VIN, Vendor, Customer, FailedPartNumber, Quantity, Description });
     }
-    console.log('Add Warranty Item State', this.state);
-  }
-
-  resetForm = () => {
-  const { Location, TurnedInBy, ReceivedBy, VIN, Invoice } = this.state;
-
-    return ( (Location && TurnedInBy && ReceivedBy === 'choose') && VIN === '' && Invoice === '');
+    console.log('State in AddWarrantyItem', this.state);
   }
 
   render() {
-    let input;
 
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <div className="row">
           <div className="small-12 medium-8 large-6 columns">
             <div className="input-group">
@@ -135,8 +132,9 @@ class AddWarrantyItem extends Component {
             </div>
             <div className="input-group">
               <span className="input-group-label">Quantity</span>
-              <select 
-                onChange={event => this.setState({Quantity: event.target.value})}
+              <select
+                value={this.state.Quantity}
+                onChange={ event => this.setState({Quantity: event.target.value})}
                 className="input-group-field"
               >
                 <option value="1">1</option>
@@ -163,20 +161,10 @@ class AddWarrantyItem extends Component {
                 >
               </textarea>
             </div>
-            <button
+            <input
               className="button primary"
-              type="button"
-              onClick={() => this.submitForm()}
-            >
-              Create
-            </button>
-            <button
-              className="button primary hollow"
-              type="button"
-              onClick={() => this.resetForm()}
-            >
-              Reset
-            </button>
+              type="submit"
+            />
           </div>
         </div>
       </form>
