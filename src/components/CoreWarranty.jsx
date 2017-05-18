@@ -23,30 +23,35 @@ class CoreWarranty extends Component {
     const showOptions = this.state.showOptions;
 
     let button = null;
-    const wTracker = <WarrantyTracker />;
-    const alternate =
-      <button 
-        className="button large hollow primary"
-        onClick={() => this.handleShowOptions()}
-      >
-        Main Menu
-      </button>;
-      const results = [wTracker, alternate];
-      const resultsFinal = results.map(function(result, index) {
-        return <div key={index}>{result}</div>;
-      });
-
-
-    if (showOptions) {
-      button = 
+    
+    const showCoreWarrantyOptions =
       <button 
           className="button large hollow primary"
           onClick={() => this.handleShowWarrantyTracker()}
         >
           Warranty Tracker
         </button>;
+
+    const showOptionsButton =
+      <button 
+        className="button large hollow primary"
+        onClick={() => this.handleShowOptions()}
+      >
+        Main Menu
+      </button>;
+
+    const warrantyTrackerComponent = <WarrantyTracker />;
+
+    const buildWarrantyTracker = [warrantyTrackerComponent, showOptionsButton];
+    const showWarrantyTracker = buildWarrantyTracker.map(function(component, index) {
+      return <div key={index}>{component}</div>;
+    });
+
+
+    if (showOptions) {
+      button = showCoreWarrantyOptions;
     } else {
-      button = resultsFinal;
+      button = showWarrantyTracker;
     }
 
     console.log('state in CoreWarranty', this.state);
