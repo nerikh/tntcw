@@ -27,13 +27,31 @@ class WarrantyList extends Component {
     //    console.log('this.props.warrantyItems', this.props.warrantyItems);
     return (
       <div>
-        {
-          this.props.warrantyItems.map((warrantyItem, index) => {
-            return (
-            <WarrantyItem key={index} warrantyItem={warrantyItem} />
-            )
-          })
-        }    
+        <table className="stack">
+          <thead>
+            <tr>
+              <th>Location</th>
+              <th>Turned In By</th>
+              <th>Received By</th>
+              <th>R/O</th>
+              <th>VIN</th>
+              <th>Vendor</th>
+              <th>Customer</th>
+              <th>Failed Part No.</th>
+              <th>QTY</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+              {
+                this.props.warrantyItems.map((warrantyItem, index) => {
+                  return (
+                    <WarrantyItem key={index} warrantyItem={warrantyItem} />
+                  )
+                })
+              }    
+          </tbody>
+        </table>
       </div>
     );
   }
