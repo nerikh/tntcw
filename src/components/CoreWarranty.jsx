@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { mainOptions } from '../actions';
-import WarrantyTracker from './WarrantyTracker';
+//import WarrantyTracker from './WarrantyTracker';
+import WarrantyList from './WarrantyList';
 
 class CoreWarranty extends Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class CoreWarranty extends Component {
     }
   }
 
-  handleShowWarrantyTracker() {
+  handleShowWarrantyList() {
     this.setState({ showOptions: false });
   }
 
@@ -27,9 +28,9 @@ class CoreWarranty extends Component {
     const showCoreWarrantyOptions =
       <button 
           className="button large hollow primary"
-          onClick={() => this.handleShowWarrantyTracker()}
+          onClick={() => this.handleShowWarrantyList()}
         >
-          Warranty Tracker
+          Warranty List
         </button>;
 
     const showOptionsButton =
@@ -40,10 +41,10 @@ class CoreWarranty extends Component {
         Main Menu
       </button>;
 
-    const warrantyTrackerComponent = <WarrantyTracker />;
+    const warrantyListComponent = <WarrantyList />;
 
-    const buildWarrantyTracker = [warrantyTrackerComponent, showOptionsButton];
-    const showWarrantyTracker = buildWarrantyTracker.map(function(component, index) {
+    const buildWarrantyList = [warrantyListComponent, showOptionsButton];
+    const showWarrantyList = buildWarrantyList.map(function(component, index) {
       return <div key={index}>{component}</div>;
     });
 
@@ -51,7 +52,7 @@ class CoreWarranty extends Component {
     if (showOptions) {
       optionsToggle = showCoreWarrantyOptions;
     } else {
-      optionsToggle = showWarrantyTracker;
+      optionsToggle = showWarrantyList;
     }
 
     console.log('state in CoreWarranty', this.state);
