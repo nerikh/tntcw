@@ -122,10 +122,10 @@ class AddWarrantyItem extends Component {
               />
             </div>
             <div className="input-group">
-              <span className="input-group-label">FailedPartNumber</span>
+              <span className="input-group-label">Failed Part Number</span>
               <input
                 type="text"
-                placeholder="FailedPartNumber"
+                placeholder="Failed Part Number"
                 className="input-group-field"
                 onChange={event => this.setState({FailedPartNumber: event.target.value})}
               />
