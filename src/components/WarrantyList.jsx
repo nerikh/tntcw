@@ -9,8 +9,8 @@ class WarrantyList extends Component {
     warrantyItemRef.on('value', snap => {
       let warrantyItems = [];
       snap.forEach(warrantyItem => {
-        const { ReceivedBy } = warrantyItem.val();
-        warrantyItems.push({ ReceivedBy });
+        const { Location, VIN } = warrantyItem.val();
+        warrantyItems.push({ Location, VIN });
       })
       console.log('warrantyItems', warrantyItems);
       // LIST_WARRANTY_ITEMS to Props
@@ -20,8 +20,20 @@ class WarrantyList extends Component {
   }
 
   render() {
+    // LIST_WARRANTY_ITEMS to Props
+    // ONLY RENDER ONE FIELD HERE, WILL RENDER ALL IN SEPARATE COMPONENT
+    // FOR WARRANTY_ITEM
+    console.log('this.props.warrantyItems', this.props.warrantyItems);
     return (
-      <div>Warranty Items List</div>
+      <div>
+        {
+          this.props.warrantyItems.map((warrantyItem, index) => {
+            return (
+              <div key={index}>{warrantyItem.Location}</div>
+            )
+          })
+        }    
+      </div>
     );
   }
 }

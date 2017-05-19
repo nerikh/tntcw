@@ -43,7 +43,7 @@ class CoreWarranty extends Component {
 
     const warrantyListComponent = <WarrantyList />;
 
-    const buildWarrantyList = [warrantyListComponent, showOptionsButton];
+    const buildWarrantyList = [ warrantyListComponent, showOptionsButton ];
     const showWarrantyList = buildWarrantyList.map(function(component, index) {
       return <div key={index}>{component}</div>;
     });
