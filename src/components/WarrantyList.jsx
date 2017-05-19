@@ -27,19 +27,19 @@ class WarrantyList extends Component {
     //    console.log('this.props.warrantyItems', this.props.warrantyItems);
     return (
       <div>
-        <table className="stack">
+        <table className="data-table stack">
           <thead>
             <tr>
-              <th>Location</th>
-              <th>Turned In By</th>
-              <th>Received By</th>
-              <th>R/O</th>
-              <th>VIN</th>
-              <th>Vendor</th>
-              <th>Customer</th>
-              <th>Failed Part No.</th>
-              <th>QTY</th>
-              <th>Description</th>
+              <th className="row1">Location</th>
+              <th className="row2">Turned In By</th>
+              <th className="row3">Received By</th>
+              <th className="row4">R/O</th>
+              <th className="row5">VIN</th>
+              <th className="row6">Vendor</th>
+              <th className="row7">Customer</th>
+              <th className="row8">Failed Part No.</th>
+              <th className="row9">QTY</th>
+              <th className="row10">Description</th>
             </tr>
           </thead>
           <tbody>

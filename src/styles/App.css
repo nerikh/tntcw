@@ -16,3 +16,50 @@
 .main {
 
 }
+
+.data-table td:nth-child(4) {
+}
+
+.data-table {
+  table-layout: fixed;
+  width: 100%;
+  white-space: wrap;
+}
+.data-table td {
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Column widths are based on these cells */
+.data-table .row1 {
+  width: 5%;
+}
+.data-table .row2 {
+  width: 10%;
+}
+.data-table .row3 {
+  width: 10%;
+}
+.data-table .row4 {
+  width: 7.5%;
+}
+.data-table .row5 {
+  width: 7.5%;
+}
+.data-table .row6 {
+  width: 10%;
+}
+.data-table .row7 {
+  width: 22.5%;
+}
+.data-table .row8 {
+  width: 22.5%;
+}
+.data-table .row9 {
+  width: 2.5%;
+}
+.data-table .row10 {
+  width: 10%;
+}
+

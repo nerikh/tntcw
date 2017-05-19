@@ -7,7 +7,7 @@ class WarrantyItem extends Component {
     console.log('props from WarrantyItem', this.props.warrantyItem);
     const { Location, TurnedInBy, ReceivedBy, RO, VIN, Vendor, Customer, FailedPartNumber, Quantity, Description } = this.props.warrantyItem;
     return (
-      <tr>
+      <tr className="data-row">
         <td>{Location}</td>
         <td>{TurnedInBy}</td>
         <td>{ReceivedBy}</td>
