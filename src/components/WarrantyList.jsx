@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { warrantyItemRef } from '../firebase';
+// LIST_WARRANTY_ITEMS to Props
+import { connect } from 'react-redux';
+import { listWarrantyItems } from '../actions'; 
 
 class WarrantyList extends Component {
   componentDidMount() {
@@ -10,6 +13,9 @@ class WarrantyList extends Component {
         warrantyItems.push({ ReceivedBy });
       })
       console.log('warrantyItems', warrantyItems);
+      // LIST_WARRANTY_ITEMS to Props
+      // Call listWarrantyItems from the Props of Goals
+      this.props.listWarrantyItems(warrantyItems);
     })
   }
 
@@ -20,4 +26,12 @@ class WarrantyList extends Component {
   }
 }
 
-export default WarrantyList;
+// LIST_WARRANTY_ITEMS to Props
+function mapStateToProps(state) {
+  const { warrantyItems } = state;
+  return {
+    warrantyItems
+  }
+}
+
+export default connect(mapStateToProps, { listWarrantyItems })(WarrantyList);
