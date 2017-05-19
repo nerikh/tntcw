@@ -4,10 +4,12 @@ import { warrantyItemRef } from '../firebase';
 class WarrantyList extends Component {
   componentDidMount() {
     warrantyItemRef.on('value', snap => {
+      let warrantyItems = [];
       snap.forEach(warrantyItem => {
-        let warrantyItemObject = warrantyItem.val();
-        console.log('warrantyItemObject', warrantyItemObject); 
+        const { ReceivedBy } = warrantyItem.val();
+        warrantyItems.push({ ReceivedBy });
       })
+      console.log('warrantyItems', warrantyItems);
     })
   }
 
